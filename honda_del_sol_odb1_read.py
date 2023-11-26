@@ -19,6 +19,7 @@ blink_count = 0
 # Initialize the previous input value
 prev_input_value = GPIO.input(channel)
 
+# Read in the JSON file with all the Codes
 with open('honda_del_sol_codes.json','r') as f:
     obd1_codes = json.load(f)
 
