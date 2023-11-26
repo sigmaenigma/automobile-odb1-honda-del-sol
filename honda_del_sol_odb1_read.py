@@ -2,6 +2,8 @@ import RPi.GPIO as GPIO
 import time
 import json
 
+""" This is a proof of concept and definitely not in a 'prod' state. Just saving stuff here in case someone finds this and decides to start using it. BE CAREFUL! """
+
 # Set the mode of the GPIO library
 GPIO.setmode(GPIO.BCM)
 
