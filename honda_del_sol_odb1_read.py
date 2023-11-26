@@ -82,4 +82,3 @@ while True:
         if blink_count in obd1_codes:
             # Output the appropriate key / value pair
             print(f"{blink_count}: {obd1_codes[blink_count]}")
-Now
