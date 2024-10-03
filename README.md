@@ -1,4 +1,4 @@
-# OBD1 Data Reader for 1994 Honda Del Sol (Python)
+# OBD1 Data Reader for 1994 Honda Del Sol
 
 This repository contains a proof-of-concept scripts designed to read OBD1 data from a 1994 Honda Del Sol. These scripts are not in a production state and should be used with caution.
 
