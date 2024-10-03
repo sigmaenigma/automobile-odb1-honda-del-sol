@@ -30,7 +30,7 @@ This Arduino sketch reads the long and short blinks from the MIL and converts th
 
 2. **Open the sketch:**
 
-   Open `honda_del_sol_odb1_read.ino` in the Arduino IDE.
+   Open `honda_del_sol_odb1_ic2_SSD1306_read.ino` in the Arduino IDE.
 
 3. **Install required libraries:**
 
