@@ -10,7 +10,7 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 - Raspberry Pi
 - GPIO setup for reading OBD1 data
-- 1994 Honda Del Sol
+- 1994 Honda Del Sol with a B16 Engine
 
 ## Software Requirements
 
