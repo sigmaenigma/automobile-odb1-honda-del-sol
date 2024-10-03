@@ -20,10 +20,10 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 1. **Clone the repository:**
 
-   ```sh
-   git clone https://github.com/yourusername/arduino-mil-blink-reader.git
-   cd arduino-mil-blink-reader
-   ```
+    ```bash
+    git clone https://github.com/sigmaenigma/odb1-honda-del-sol.git
+    cd .\odb1-honda-del-sol\arduino\
+    ```
 
 2. **Open the sketch:**
 
