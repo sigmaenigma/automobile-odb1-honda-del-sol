@@ -23,7 +23,7 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 1. Clone this repository:
     ```bash
-    git clone [https://github.com/yourusername/obd1-reader.git](https://github.com/sigmaenigma/odb1-honda-del-sol.git)
+    git clone https://github.com/sigmaenigma/odb1-honda-del-sol.git
     cd obd1-reader
     ```
 
