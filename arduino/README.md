@@ -27,7 +27,7 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 2. **Open the sketch:**
 
-   Open `mil_blink_reader.ino` in the Arduino IDE.
+   Open `honda_del_sol_odb1_read.ino` in the Arduino IDE.
 
 3. **Upload the sketch:**
 
