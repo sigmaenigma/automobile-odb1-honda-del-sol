@@ -23,10 +23,10 @@ This Arduino sketch reads the long and short blinks from the MIL and converts th
 
 1. **Clone the repository:**
 
-   ```sh
-   git clone https://github.com/yourusername/arduino-mil-blink-reader.git
-   cd arduino-mil-blink-reader
-   ```
+   ```bash
+    git clone https://github.com/sigmaenigma/odb1-honda-del-sol.git
+    cd .\odb1-honda-del-sol\arduino-ic2-SSD1306-display\
+    ```
 
 2. **Open the sketch:**
 
