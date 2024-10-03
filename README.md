@@ -74,45 +74,40 @@ Just saving stuff here in case someone finds this and decides to start using it.
 BE CAREFUL! 
 """
 
-# Set the mode of the GPIO library
+# GPIO setup
 GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN)  # Assuming GPIO 18 is connected to the MIL
 
-# Set the pin number to read from
-channel = 17
-
-# Set the pin as an input channel
-GPIO.setup(channel, GPIO.IN)
-
-# Initialize the blink count
-blink_count = 0
-
-# Initialize the previous input value
-prev_input_value = GPIO.input(channel)
-
-# Read in the JSON file with all the Codes
 with open('honda_del_sol_codes.json','r') as f:
-    obd1_codes = json.load(f)
+    dtc_codes = json.load(f)
+    
+def read_blinks():
+    long_blinks = 0
+    short_blinks = 0
+    while True:
+        if GPIO.input(18) == GPIO.HIGH:
+            start_time = time.time()
+            while GPIO.input(18) == GPIO.HIGH:
+                pass
+            blink_duration = time.time() - start_time
+            if blink_duration > 1:  # Assuming long blink is > 1 second
+                long_blinks += 1
+            else:
+                short_blinks += 1
+        time.sleep(0.1)  # Debounce delay
+        if long_blinks > 0 and short_blinks > 0:
+            break
+    return long_blinks, short_blinks
 
-# Loop forever
-while True:
-    # Wait for a short period of time
-    time.sleep(0.1)
-
-    # Read the value of the input channel
-    input_value = GPIO.input(channel)
-
-    # If the input value has changed
-    if input_value != prev_input_value:
-        # Increment the blink count
-        blink_count += 1
-
-        # Update the previous input value
-        prev_input_value = input_value
-
-        # If the blink count is in the key of the dictionary
-        if blink_count in obd1_codes:
-            # Output the appropriate key / value pair
-            print(f"{blink_count}: {obd1_codes[blink_count]}")
+try:
+    while True:
+        long_blinks, short_blinks = read_blinks()
+        dtc_code = long_blinks * 10 + short_blinks
+        dtc_message = dtc_codes.get(str(dtc_code), "Unknown DTC")
+        print(f"DTC Code: {dtc_code}, Message: {dtc_message}")
+        time.sleep(5)  # Wait before reading the next code
+except KeyboardInterrupt:
+    GPIO.cleanup()
 ```
 
 ## JSON File Format
