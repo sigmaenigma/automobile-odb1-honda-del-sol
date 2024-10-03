@@ -10,7 +10,8 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 - Raspberry Pi
 - GPIO setup for reading OBD1 data
-- 1994 Honda Del Sol with a B16a3 Engine
+- 1994 Honda Del Sol with a B16A3 Engine
+- **Voltage regulator** to step down 12V to 3.3V
 
 ## Software Requirements
 
@@ -33,9 +34,29 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 
 3. Ensure the `honda_del_sol_codes.json` file is in the same directory as the script.
 
+## Voltage Regulation
+
+To protect your Raspberry Pi from the 12V output of the Honda Del Sol, you need to use a voltage regulator to step down the voltage to 3.3V. Here’s how you can do it:
+
+1. **Components Needed**: (I'll try and create a schematic soon)
+    - Voltage regulator (e.g., LM7805 for 5V output, then a resistor divider or a 3.3V regulator like LD1117-3.3)
+    - Resistors (if using a resistor divider)
+    - Breadboard and jumper wires
+
+3. **Wiring**:
+    - Connect the 12V output from the Honda Del Sol to the input of the voltage regulator.
+    - Connect the ground of the voltage regulator to the ground of the Raspberry Pi.
+    - Connect the output of the voltage regulator to the GPIO pin (pin 17) on the Raspberry Pi.
+
+4. **Example Circuit**:
+    - If using an LM7805:
+        - Input: 12V from the car
+        - Output: 5V
+        - Use a resistor divider to step down from 5V to 3.3V, or use a 3.3V regulator like LD1117-3.3 directly.
+
 ## Usage
 
-1. Connect the Raspberry Pi to the OBD1 port of the 1994 Honda Del Sol.
+1. Connect the Raspberry Pi to the OBD1 port of the 1994 Honda Del Sol using the voltage regulator setup.
 2. Run the script:
     ```bash
     python obd1_reader.py
@@ -149,17 +170,3 @@ The `honda_del_sol_codes.json` file should be formatted as follows:
 ## Disclaimer
 
 This script is a proof of concept and should be used with caution. It is not intended for production use. Always ensure you understand the code and its implications before using it on your vehicle.
-
-### Acknowledgments
-
-This project was made possible through the support and resources provided by various contributors and repositories:
-
-- **brendan-w/python-OBD**: OBD-II serial module for reading engine data. Available at [GitHub](https://github.com/brendan-w/python-OBD).
-- **Fork from OBDTester**: OBD-II compliant car module. Available at [GitHub](https://github.com/chethenry/pyOBD).
-- **brokenrobotz/python-OBD**: OBD-II serial module for reading engine data. Available at [GitHub](https://github.com/brokenrobotz/python-OBD).
-- **peterh/pyobd**: Original repository. Available at [GitHub](https://github.com/peterh/pyobd).
-- **Pbartek/pyobd-pi**: Forked repository. Available at [GitHub](https://github.com/Pbartek/pyobd-pi).
-- **OBDTester**: OBD-II compliant car module. Available at [OBDTester](http://www.obdtester.com/pyobd).
-- **SparkFun**: ELM327 AT Commands documentation. Available at [SparkFun](https://www.sparkfun.com/datasheets/Widgets/ELM327_AT_Commands.pdf).
-- **Wikipedia**: Information on OBD-II PIDs. Available at [Wikipedia](http://en.wikipedia.org/wiki/OBD-II_PIDs).
-- **SparkFun**: OBD-II products. Available at [SparkFun](https://www.sparkfun.com/products/9555).
