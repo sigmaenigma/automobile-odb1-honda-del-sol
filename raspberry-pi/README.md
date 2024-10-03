@@ -24,7 +24,7 @@ The script reads input from a specified GPIO pin on the Raspberry Pi, counts the
 1. Clone this repository:
     ```bash
     git clone https://github.com/sigmaenigma/odb1-honda-del-sol.git
-    cd obd1-reader
+    cd .\odb1-honda-del-sol\raspberry-pi\
     ```
 
 2. Install the required Python libraries:
